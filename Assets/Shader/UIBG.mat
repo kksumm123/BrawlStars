@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UIBG'
+  m_Name: UIBG
   m_Shader: {fileID: -6465566751694194690, guid: e1f75b51c73155443a7208c9d8efbc44, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: d51f36d10e542d846bf695634528769b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_7c48094d58214991b2fc5a71203f4fe6_Out_0:
@@ -39,7 +39,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats: []
+    m_Floats:
+    - _PatternScale: 8
+    - _PatternSpeedX: 1
+    - _PatternSpeedY: 1
     m_Colors:
     - _BGColorIn: {r: 0.01960784, g: 0.4980392, b: 0.6980392, a: 1}
     - _BGColorIn_1: {r: 0.6941177, g: 0.937255, b: 0.6901961, a: 1}
