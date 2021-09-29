@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MenuUIBG
+  m_Name: MenuUI
   m_Shader: {fileID: -6465566751694194690, guid: e1f75b51c73155443a7208c9d8efbc44, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -23,10 +23,6 @@ Material:
         m_Texture: {fileID: 2800000, guid: d51f36d10e542d846bf695634528769b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_7c48094d58214991b2fc5a71203f4fe6_Out_0:
-        m_Texture: {fileID: 2800000, guid: 9f376aa4f57a515489c787b2185669e8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -40,11 +36,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _CircleGradientMulti: 3
+    - Vector1_60de7eaba4a548e4bff4a7178d12c796: 1
+    - _CircleIntencity: 1.5
+    - _CircleRadius: 0
+    - _PatternRotate: 0.43
     - _PatternScale: 8
-    - _PatternSpeedX: 1
-    - _PatternSpeedY: 1
+    - _PatternSpeedX: -1
+    - _PatternSpeedY: -1
     m_Colors:
-    - _BGColorIn: {r: 0.34901962, g: 0.18431373, b: 0.4784314, a: 1}
-    - _BGColorIn_1: {r: 0.9960785, g: 0.95294124, b: 0.8078432, a: 1}
+    - _BGColorIn: {r: 0.5568628, g: 0, b: 1, a: 1}
+    - _BGColorIn_1: {r: 0.990566, g: 0.7970136, b: 0.5093005, a: 1}
   m_BuildTextureStacks: []

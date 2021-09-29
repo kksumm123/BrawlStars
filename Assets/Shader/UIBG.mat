@@ -41,9 +41,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _CircleGradientMulti: 3
+    - _CircleIntencity: 1
+    - _CircleRadius: 0
+    - _PatternRotate: 0.43
     - _PatternScale: 8
-    - _PatternSpeedX: 1
-    - _PatternSpeedY: 1
+    - _PatternSpeedX: -1
+    - _PatternSpeedY: -1
     m_Colors:
     - _BGColorIn: {r: 0.01960784, g: 0.4980392, b: 0.6980392, a: 1}
     - _BGColorIn_1: {r: 0.6941177, g: 0.937255, b: 0.6901961, a: 1}
