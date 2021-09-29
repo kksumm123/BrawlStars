@@ -19,12 +19,19 @@ public class IconSelectUI : BaseUI<IconSelectUI>
         baseProfileIconBox.gameObject.SetActive(true);
         foreach (var item in icons)
         {
-            var newItem = Instantiate(baseProfileIconBox, baseProfileIconBox.transform.parent);
-            newItem.LinkComponent();
-            newItem.icon.sprite = item;
-            profileIconBoxs.Add(newItem);
+            var newIconItem = Instantiate(baseProfileIconBox, baseProfileIconBox.transform.parent);
+            newIconItem.LinkComponent();
+            newIconItem.icon.sprite = item;
+            newIconItem.button.onClick.AddListener(() => OnClickItem(newIconItem));
+            profileIconBoxs.Add(newIconItem);
         }
         baseProfileIconBox.gameObject.SetActive(false);
+    }
+
+    private void OnClickItem(ProfileIconBox newIconItem)
+    {
+        string selectedSpriteName = newIconItem.icon.name;
+        LocalDB.Instance.player.data.SetSeletedProfileName(selectedSpriteName);
     }
 
     internal void ShowUI()
