@@ -18,6 +18,7 @@ public class PlayerData
 public class LocalDB : SingletonMonoBehaviour<LocalDB>
 {
     public List<Sprite> profileIcons = new List<Sprite>();
+    public List<Sprite> brawlerIcons = new List<Sprite>();
 
     public FileData<PlayerData> player;
 
