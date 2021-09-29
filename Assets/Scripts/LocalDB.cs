@@ -10,10 +10,15 @@ public class PlayerData
     internal void SetSeletedProfileName(string selectedSpriteName)
     {
         selectedProfileName = selectedSpriteName;
+
+        // 모든 SelectedProfileIcon 아이콘 교체
+        SelectedProfileIcon.Items.ForEach(x => x.Refresh());
     }
 }
 public class LocalDB : SingletonMonoBehaviour<LocalDB>
 {
+    public List<Sprite> profileIcons = new List<Sprite>();
+
     public FileData<PlayerData> player;
 
     protected override void OnInit()

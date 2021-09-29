@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class IconSelectUI : BaseUI<IconSelectUI>
 {
-    public List<Sprite> icons = new List<Sprite>();
     ProfileIconBox baseProfileIconBox;
     List<ProfileIconBox> profileIconBoxs = new List<ProfileIconBox>();
     protected override void OnInit()
@@ -17,7 +16,7 @@ public class IconSelectUI : BaseUI<IconSelectUI>
         profileIconBoxs.Clear();
 
         baseProfileIconBox.gameObject.SetActive(true);
-        foreach (var item in icons)
+        foreach (var item in LocalDB.Instance.profileIcons)
         {
             var newIconItem = Instantiate(baseProfileIconBox, baseProfileIconBox.transform.parent);
             newIconItem.LinkComponent();
@@ -30,8 +29,9 @@ public class IconSelectUI : BaseUI<IconSelectUI>
 
     private void OnClickItem(ProfileIconBox newIconItem)
     {
-        string selectedSpriteName = newIconItem.icon.name;
+        string selectedSpriteName = newIconItem.icon.sprite.name;
         LocalDB.Instance.player.data.SetSeletedProfileName(selectedSpriteName);
+        Close();
     }
 
     internal void ShowUI()
