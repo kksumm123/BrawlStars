@@ -1,14 +1,49 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CharacterSelectUI : BaseUI<CharacterSelectUI>
 {
-    Image baseItem;
+    GameObject baseItem;
+    public Transform unlockedParent;
+    public Transform lockedParent;
     protected override void OnInit()
     {
         base.OnInit();
-        baseItem = transform.Find("CharacterSelectUI/Scroll View/Viewport/Content/UnLockedCharecter/Item").GetComponent<Image>();
+        unlockedParent = transform.Find("Scroll View/Viewport/Content/UnLockedCharecter");
+        lockedParent = transform.Find("Scroll View/Viewport/Content/LockedCharecter");
+        baseItem = transform.Find("Scroll View/Viewport/Content/UnLockedCharecter/BaseItem").gameObject;
+
+        var unlockedIDs = LocalDB.Instance.player.data.unlockedBrawlerIDs;
+        var lockedIDs = LocalDB.Instance.player.data.lockedBrawlerIDs;
+
+        baseItem.gameObject.SetActive(true);
+
+        foreach (var item in unlockedIDs)
+        {
+            var newItem = Instantiate(baseItem, unlockedParent);
+            string spriteName = item.ToString();
+            newItem.transform.Find("Icon").GetComponent<Image>().sprite = LocalDB.Instance.brawlerIcons.Find(x => x.name == spriteName);
+        }
+        foreach (var item in lockedIDs)
+        {
+            var newItem = Instantiate(baseItem, lockedParent);
+            string spriteName = item.ToString();
+            newItem.transform.Find("Icon").GetComponent<Image>().sprite = LocalDB.Instance.brawlerIcons.Find(x => x.name == spriteName);
+        }
+
+        StartCoroutine(ContentSizeFitterRebuildCo());
+        baseItem.gameObject.SetActive(false);
+    }
+
+    IEnumerator ContentSizeFitterRebuildCo()
+    {
+        yield return null;
+        var csfs = GetComponentsInChildren<ContentSizeFitter>().ToList();
+
+        foreach (var item in csfs)
+            LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)item.transform);
     }
 }

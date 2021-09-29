@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerData
 {
     public string selectedProfileName;
+    public List<int> unlockedBrawlerIDs;
+    public List<int> lockedBrawlerIDs;
 
     internal void SetSeletedProfileName(string selectedSpriteName)
     {

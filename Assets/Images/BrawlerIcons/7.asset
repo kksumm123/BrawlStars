@@ -6,11 +6,11 @@ Sprite:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Screenshot_20210929-203409_2
+  m_Name: 7
   m_Rect:
     serializedVersion: 2
-    x: 1214
-    y: 515
+    x: 276
+    y: 528
     width: 419
     height: 405
   m_Offset: {x: 0, y: 0}
@@ -22,12 +22,12 @@ Sprite:
   m_AtlasName: 
   m_PackingTag: 
   m_RenderDataKey:
-    4a789070e6ffbfb4d933eed5e53c7167: 1661852999782678922
+    6a50189c77e43714a9960930e981771f: -2706351912360215819
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
     serializedVersion: 3
-    texture: {fileID: 2800000, guid: 4a789070e6ffbfb4d933eed5e53c7167, type: 3}
+    texture: {fileID: 2800000, guid: 6a50189c77e43714a9960930e981771f, type: 3}
     alphaTexture: {fileID: 0}
     secondaryTextures: []
     m_SubMeshes:
@@ -107,18 +107,18 @@ Sprite:
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
-      x: 1214
-      y: 515
+      x: 276
+      y: 528
       width: 419
       height: 405
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
     settingsRaw: 64
-    uvTransform: {x: 100, y: 1423.5, z: 100, w: 717.5}
+    uvTransform: {x: 100, y: 485.5, z: 100, w: 730.5}
     downscaleMultiplier: 1
   m_AtlasRD:
     serializedVersion: 3
-    texture: {fileID: 2800000, guid: 4a789070e6ffbfb4d933eed5e53c7167, type: 3}
+    texture: {fileID: 2800000, guid: 6a50189c77e43714a9960930e981771f, type: 3}
     alphaTexture: {fileID: 0}
     secondaryTextures: []
     m_SubMeshes:
@@ -198,14 +198,14 @@ Sprite:
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
-      x: 1214
-      y: 515
+      x: 276
+      y: 528
       width: 419
       height: 405
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
     settingsRaw: 64
-    uvTransform: {x: 100, y: 1423.5, z: 100, w: 717.5}
+    uvTransform: {x: 100, y: 485.5, z: 100, w: 730.5}
     downscaleMultiplier: 1
   m_PhysicsShape:
   - - {x: -2.095, y: 2.0249999}
@@ -213,4 +213,4 @@ Sprite:
     - {x: 2.095, y: -2.0249999}
     - {x: 2.095, y: 2.0249999}
   m_Bones: []
-  m_SpriteID: a81c6f89f76101710800000000000000
+  m_SpriteID: 5faf19a464b117ad0800000000000000
