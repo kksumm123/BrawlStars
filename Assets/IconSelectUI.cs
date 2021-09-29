@@ -6,25 +6,25 @@ using UnityEngine;
 public class IconSelectUI : BaseUI<IconSelectUI>
 {
     public List<Sprite> icons = new List<Sprite>();
-    IconSelectBox baseIconSelectBox;
-    List<IconSelectBox> iconSelectBoxs = new List<IconSelectBox>();
+    ProfileIconBox baseProfileIconBox;
+    List<ProfileIconBox> profileIconBoxs = new List<ProfileIconBox>();
     protected override void OnInit()
     {
         base.OnInit();
-        baseIconSelectBox = GetComponentInChildren<IconSelectBox>(true);
+        baseProfileIconBox = GetComponentInChildren<ProfileIconBox>(true);
 
-        iconSelectBoxs.ForEach(x => Destroy(x.gameObject));
-        iconSelectBoxs.Clear();
+        profileIconBoxs.ForEach(x => Destroy(x.gameObject));
+        profileIconBoxs.Clear();
 
-        baseIconSelectBox.gameObject.SetActive(true);
+        baseProfileIconBox.gameObject.SetActive(true);
         foreach (var item in icons)
         {
-            var newItem = Instantiate(baseIconSelectBox, baseIconSelectBox.transform.parent);
+            var newItem = Instantiate(baseProfileIconBox, baseProfileIconBox.transform.parent);
             newItem.LinkComponent();
             newItem.icon.sprite = item;
-            iconSelectBoxs.Add(newItem);
+            profileIconBoxs.Add(newItem);
         }
-        baseIconSelectBox.gameObject.SetActive(false);
+        baseProfileIconBox.gameObject.SetActive(false);
     }
 
     internal void ShowUI()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IconSelectBox : MonoBehaviour
+public class ProfileIconBox : MonoBehaviour
 {
     public Image icon;
     void Start()
