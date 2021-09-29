@@ -8,5 +8,16 @@ public class PlayerData
 }
 public class LocalDB : SingletonMonoBehaviour<LocalDB>
 {
+    public FileData<PlayerData> player;
 
+    protected override void OnInit()
+    {
+        base.OnInit();
+        player = new FileData<PlayerData>("PlayerData");
+    }
+    new private void OnDestroy()
+    {
+        base.OnDestroy();
+        player.SaveData();
+    }
 }
