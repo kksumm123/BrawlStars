@@ -34,8 +34,19 @@ public class CharacterSelectUI : BaseUI<CharacterSelectUI>
             newItem.transform.Find("Icon").GetComponent<Image>().sprite = LocalDB.Instance.brawlerIcons.Find(x => x.name == spriteName);
         }
 
-        StartCoroutine(ContentSizeFitterRebuildCo());
+        Invoke(nameof(LatedUpdateIVK), 0);
+        //StartCoroutine(ContentSizeFitterRebuildCo());
+
         baseItem.gameObject.SetActive(false);
+    }
+    private void LatedUpdateIVK()
+    {
+        StartCoroutine(ContentSizeFitterRebuildCo());
+    }
+
+    internal void ShowUI()
+    {
+        base.Show();
     }
 
     IEnumerator ContentSizeFitterRebuildCo()
