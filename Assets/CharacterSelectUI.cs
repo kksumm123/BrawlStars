@@ -43,16 +43,10 @@ public class CharacterSelectUI : BaseUI<CharacterSelectUI>
             newItemImage.material.SetFloat("Saturation", 0);
         }
 
-        Invoke(nameof(LatedUpdateIVK), 0);
-        //StartCoroutine(ContentSizeFitterRebuildCo());
+        StartCoroutine(ContentSizeFitterRebuildCo());
 
         baseItem.gameObject.SetActive(false);
     }
-    private void LatedUpdateIVK()
-    {
-        StartCoroutine(ContentSizeFitterRebuildCo());
-    }
-
     internal void ShowUI()
     {
         base.Show();
