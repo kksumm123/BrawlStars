@@ -12,6 +12,7 @@ public class CharacterSelectUI : BaseUI<CharacterSelectUI>
     protected override void OnInit()
     {
         base.OnInit();
+        gameObject.SetActive(true);
         unlockedParent = transform.Find("Scroll View/Viewport/Content/UnLockedCharecter");
         lockedParent = transform.Find("Scroll View/Viewport/Content/LockedCharecter");
         baseItem = transform.Find("Scroll View/Viewport/Content/UnLockedCharecter/BaseItem").gameObject;
