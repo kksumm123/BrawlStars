@@ -14,8 +14,8 @@ public class CharacterSelectUI : BaseUI<CharacterSelectUI>
     {
         base.OnInit();
         gameObject.SetActive(true);
-        unlockedParent = transform.Find("Scroll View/Viewport/Content/UnLockedCharecter");
-        lockedParent = transform.Find("Scroll View/Viewport/Content/LockedCharecter");
+        unlockedParent = transform.Find("Scroll View/Viewport/Content/UnLockedCharecters");
+        lockedParent = transform.Find("Scroll View/Viewport/Content/LockedCharecters");
         baseItem = transform.Find("Scroll View/Viewport/Content/UnLockedCharecter/BaseItem").gameObject;
         baseItemIcon = baseItem.transform.Find("Icon").GetComponent<Image>();
 

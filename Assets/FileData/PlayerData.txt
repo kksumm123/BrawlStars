@@ -1,1 +1,1 @@
-{"selectedProfileName":"Screenshot_20210928-192849_3","unlockedBrawlerIDs":[1,2,5,7],"lockedBrawlerIDs":[]}
+{"selectedProfileName":"Screenshot_20210928-192849_3","unlockedBrawlerIDs":[1,2,5,7],"lockedBrawlerIDs":[3,4,6,8,9,10,11,12]}
