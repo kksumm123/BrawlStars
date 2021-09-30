@@ -16,7 +16,7 @@ public class CharacterSelectUI : BaseUI<CharacterSelectUI>
         gameObject.SetActive(true);
         unlockedParent = transform.Find("Scroll View/Viewport/Content/UnLockedCharecters");
         lockedParent = transform.Find("Scroll View/Viewport/Content/LockedCharecters");
-        baseItem = transform.Find("Scroll View/Viewport/Content/UnLockedCharecter/BaseItem").gameObject;
+        baseItem = transform.Find("Scroll View/Viewport/Content/UnLockedCharecters/BaseItem").gameObject;
         baseItemIcon = baseItem.transform.Find("Icon").GetComponent<Image>();
 
         var unlockedIDs = LocalDB.Instance.player.data.unlockedBrawlerIDs;
