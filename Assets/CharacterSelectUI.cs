@@ -31,7 +31,7 @@ public class CharacterSelectUI : BaseUI<CharacterSelectUI>
             var newItemImage = newItem.transform.Find("Icon").GetComponent<Image>();
             newItemImage.sprite = LocalDB.Instance.brawlerIcons.Find(x => x.name == spriteName);
             newItemImage.material = new Material(baseItemIcon.material);
-            newItemImage.material.SetFloat("Saturation", 1);
+            newItemImage.material.SetFloat("_Saturation", 1);
         }
         foreach (var item in lockedIDs)
         {
@@ -40,7 +40,7 @@ public class CharacterSelectUI : BaseUI<CharacterSelectUI>
             var newItemImage = newItem.transform.Find("Icon").GetComponent<Image>();
             newItemImage.sprite = LocalDB.Instance.brawlerIcons.Find(x => x.name == spriteName);
             newItemImage.material = new Material(baseItemIcon.material);
-            newItemImage.material.SetFloat("Saturation", 0);
+            newItemImage.material.SetFloat("_Saturation", 0);
         }
 
         StartCoroutine(ContentSizeFitterRebuildCo());
