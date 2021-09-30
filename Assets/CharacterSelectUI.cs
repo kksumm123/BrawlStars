@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class CharacterSelectUI : BaseUI<CharacterSelectUI>
 {
     GameObject baseItem;
+    Image baseItemIcon;
     public Transform unlockedParent;
     public Transform lockedParent;
     protected override void OnInit()
@@ -16,6 +17,7 @@ public class CharacterSelectUI : BaseUI<CharacterSelectUI>
         unlockedParent = transform.Find("Scroll View/Viewport/Content/UnLockedCharecter");
         lockedParent = transform.Find("Scroll View/Viewport/Content/LockedCharecter");
         baseItem = transform.Find("Scroll View/Viewport/Content/UnLockedCharecter/BaseItem").gameObject;
+        baseItemIcon = baseItem.transform.Find("Icon").GetComponent<Image>();
 
         var unlockedIDs = LocalDB.Instance.player.data.unlockedBrawlerIDs;
         var lockedIDs = LocalDB.Instance.player.data.lockedBrawlerIDs;
@@ -26,13 +28,19 @@ public class CharacterSelectUI : BaseUI<CharacterSelectUI>
         {
             var newItem = Instantiate(baseItem, unlockedParent);
             string spriteName = item.ToString();
-            newItem.transform.Find("Icon").GetComponent<Image>().sprite = LocalDB.Instance.brawlerIcons.Find(x => x.name == spriteName);
+            var newItemImage = newItem.transform.Find("Icon").GetComponent<Image>();
+            newItemImage.sprite = LocalDB.Instance.brawlerIcons.Find(x => x.name == spriteName);
+            newItemImage.material = new Material(baseItemIcon.material);
+            newItemImage.material.SetFloat("Saturation", 1);
         }
         foreach (var item in lockedIDs)
         {
             var newItem = Instantiate(baseItem, lockedParent);
             string spriteName = item.ToString();
-            newItem.transform.Find("Icon").GetComponent<Image>().sprite = LocalDB.Instance.brawlerIcons.Find(x => x.name == spriteName);
+            var newItemImage = newItem.transform.Find("Icon").GetComponent<Image>();
+            newItemImage.sprite = LocalDB.Instance.brawlerIcons.Find(x => x.name == spriteName);
+            newItemImage.material = new Material(baseItemIcon.material);
+            newItemImage.material.SetFloat("Saturation", 0);
         }
 
         Invoke(nameof(LatedUpdateIVK), 0);
