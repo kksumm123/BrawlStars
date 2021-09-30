@@ -24,6 +24,7 @@ Shader "GrayWithStencilShaderGraph"
 			ReadMask [_StencilReadMask]
 			WriteMask [_StencilWriteMask]
 		}
+        ColorMask[_ColorMask]
         Tags
         {
             "RenderPipeline"="UniversalPipeline"
