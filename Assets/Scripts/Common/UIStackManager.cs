@@ -84,7 +84,7 @@ public class UIStackManager : SingletonMonoBehaviour<UIStackManager>
         }
     }
 
-    private static UICloseInfoStack uICloserStack = new UICloseInfoStack();
+    public static UICloseInfoStack uICloserStack = new UICloseInfoStack();
 
     private void Update()
     {
