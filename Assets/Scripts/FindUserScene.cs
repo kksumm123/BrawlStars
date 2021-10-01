@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FindUserScene : MonoBehaviour
+public class FindUserScene : BaseUI<FindUserScene>
 {
     Text searchResultText;
     public float findUserTime = 3;
-    IEnumerator Start()
+    public void ShowUI()
     {
-        searchResultText = GameObject.Find("Canvas/FindUserScene/SearchResultText").GetComponent<Text>();
+        base.Show();
+        StartCoroutine(ShowUICo());
+    }
+
+    IEnumerator ShowUICo()
+    {
+        searchResultText = GameObject.Find("Canvas/FindUserUI/SearchResultText").GetComponent<Text>();
 
         //3초 동안 1 ~ 10으로 까지 숫자를 올린 다음
         // 로딩 UI를 불러오고 FindUserUI는 꺼지게 해라.

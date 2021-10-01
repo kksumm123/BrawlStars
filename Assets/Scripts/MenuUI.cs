@@ -16,6 +16,14 @@ public class MenuUI : BaseUI<MenuUI>
         transform.Find("CharaterSelectButton")
             .GetComponent<Button>().onClick
             .AddListener(OnClickChangeCharacter);
+        transform.Find("PlayButton/Button")
+            .GetComponent<Button>().onClick
+            .AddListener(OnClickPlay);
+    }
+
+    void OnClickPlay()
+    {
+        FindUserScene.Instance.ShowUI();
     }
 
     private void OnClickPlayerInfoButton()
