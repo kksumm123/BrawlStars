@@ -37,11 +37,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_60de7eaba4a548e4bff4a7178d12c796: 1
-    - Vector1_bf73be7012044bd5a297bd346b854d14: 2.5
+    - Vector1_bf73be7012044bd5a297bd346b854d14: 1.8
     - _CircleIntencity: 1.67
     - _CircleRadius: 0
     - _PatternRotate: 0.44
-    - _PatternScale: 3
+    - _PatternScale: 5
     - _PatternSpeedX: -0.1
     - _PatternSpeedY: -0.5
     m_Colors:
