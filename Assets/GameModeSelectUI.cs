@@ -28,14 +28,18 @@ public class GameModeSelectUI : MonoBehaviour
 
     private void OnGameModeScrollValueChanged(Vector2 scrollPos)
     {
-        float x = scrollPos.x;
-        print(x);
         int selectedMenuIndex = 0;
 
         for (int i = downMenuButtons.Length - 1; i >= 0; i--)
         {
-            float value = (float)i / downMenuButtons.Length;
-            if (value < x)
+            var contentPosX = scrollRect.content.localPosition.x;
+            var localPosX = scrollRect.content.GetChild(i).localPosition.x;
+            var contentWidth = scrollRect.content.GetComponent<RectTransform>().sizeDelta.x;
+            float scrollPosX = Mathf.Clamp(scrollPos.x, 0, 1);
+            float value = localPosX + (Screen.width * scrollPosX) / contentWidth;
+            //print($"{localPosX} + {Screen.width} * {scrollPosX} / {contentWidth} = {value}");
+            print($"{value} < {contentPosX}");
+            if (value < contentPosX)
             {
                 selectedMenuIndex = i;
                 break;
@@ -59,10 +63,7 @@ public class GameModeSelectUI : MonoBehaviour
     bool scrollMovable = false;
     void OnClickDownMenu(int index)
     {
-        var localPosX = scrollRect.content.GetChild(index).localPosition.x;
-        var childWidth = scrollRect.content.GetChild(index).GetComponent<RectTransform>().sizeDelta.x * 0.5f;
-        var padding = scrollRect.content.GetComponent<HorizontalLayoutGroup>().padding.left;
-        childIndexPos = localPosX - childWidth - padding;
+        childIndexPos = GetChildIndexPos(index);
 
         var contentWidth = scrollRect.content.GetComponent<RectTransform>().sizeDelta.x;
         normalPosition = childIndexPos / contentWidth;
@@ -71,7 +72,13 @@ public class GameModeSelectUI : MonoBehaviour
         normalPosition = Mathf.Clamp(normalPosition, 0, 1);
         scrollMovable = true;
     }
-
+    float GetChildIndexPos(int index)
+    {
+        var localPosX = scrollRect.content.GetChild(index).localPosition.x;
+        var childWidth = scrollRect.content.GetChild(index).GetComponent<RectTransform>().sizeDelta.x * 0.5f;
+        var padding = scrollRect.content.GetComponent<HorizontalLayoutGroup>().padding.left;
+        return localPosX - childWidth - padding;
+    }
     [SerializeField] float lerpValue = 0.1f;
     void Update()
     {
