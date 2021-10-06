@@ -29,7 +29,7 @@ public class GameModeSelectUI : MonoBehaviour
     private void OnGameModeScrollValueChanged(Vector2 scrollPos)
     {
         float x = scrollPos.x;
-
+        print(x);
         int selectedMenuIndex = 0;
 
         for (int i = downMenuButtons.Length - 1; i >= 0; i--)
@@ -54,73 +54,34 @@ public class GameModeSelectUI : MonoBehaviour
         lastSelectedIndex = selectedMenuIndex;
     }
 
-    float childIndexPosX;
-    bool normalMovable = false;
-    float normalValue;
+    float childIndexPos;
+    float normalPosition;
     bool scrollMovable = false;
     void OnClickDownMenu(int index)
     {
-        scrollMovable = false;
-        normalMovable = false;
+        var localPosX = scrollRect.content.GetChild(index).localPosition.x;
+        var childWidth = scrollRect.content.GetChild(index).GetComponent<RectTransform>().sizeDelta.x * 0.5f;
+        var padding = scrollRect.content.GetComponent<HorizontalLayoutGroup>().padding.left;
+        childIndexPos = localPosX - childWidth - padding;
 
-        if (scrollRect.content.GetChild(index) != null)
-        {
-            childIndexPosX = scrollRect.GetComponent<RectTransform>().sizeDelta.x * 0.5f
-                - scrollRect.content.GetChild(index).localPosition.x;
+        var contentWidth = scrollRect.content.GetComponent<RectTransform>().sizeDelta.x;
+        normalPosition = childIndexPos / contentWidth;
+        print($"i = {index}\n{childIndexPos} / {contentWidth} = {normalPosition}");
 
-            if (index == 0)
-            {
-                normalMovable = true;
-                normalValue = 0;
-
-            }
-            else if (index == scrollRect.content.childCount - 1)
-            {
-                normalMovable = true;
-                normalValue = 1;
-            }
-            else
-            {
-                scrollMovable = true;
-            }
-        }
+        normalPosition = Mathf.Clamp(normalPosition, 0, 1);
+        scrollMovable = true;
     }
 
-    float addedLerpValue;
     [SerializeField] float lerpValue = 0.1f;
     void Update()
     {
         if (scrollMovable)
         {
-            addedLerpValue += lerpValue * 0.1f;
+            scrollRect.horizontalNormalizedPosition = Mathf.Lerp(scrollRect.horizontalNormalizedPosition, normalPosition, lerpValue);
 
-            var curPosX = scrollRect.content.position.x;
-
-            var distanceX = Mathf.Abs(curPosX) - Mathf.Abs(childIndexPosX);
-            if (Mathf.Abs(distanceX) < 50)
-            {
-                scrollMovable = false;
-            }
-            else
-            {
-                var pos = scrollRect.content.position;
-                pos.x = Mathf.Lerp(curPosX, childIndexPosX, addedLerpValue);
-                scrollRect.content.position = pos;
-            }
-        }
-        else if (normalMovable)
-        {
-            addedLerpValue += lerpValue * 0.1f;
-
-            scrollRect.horizontalNormalizedPosition = Mathf.Lerp(scrollRect.horizontalNormalizedPosition, normalValue, addedLerpValue);
-
-            var distanceX = Mathf.Abs(scrollRect.horizontalNormalizedPosition) - Mathf.Abs(normalValue);
+            var distanceX = Mathf.Abs(scrollRect.horizontalNormalizedPosition - normalPosition);
             if (Mathf.Abs(distanceX) < 0.01f)
-                normalMovable = false;
-        }
-        else
-        {
-            addedLerpValue = 0;
+                scrollMovable = false;
         }
     }
 }
