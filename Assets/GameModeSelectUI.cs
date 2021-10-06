@@ -32,16 +32,16 @@ public class GameModeSelectUI : MonoBehaviour
 
         for (int i = downMenuButtons.Length - 1; i >= 0; i--)
         {
-            var contentPosX = scrollRect.content.localPosition.x;
             var localPosX = scrollRect.content.GetChild(i).localPosition.x;
+            var childWidth = scrollRect.content.GetChild(i).GetComponent<RectTransform>().sizeDelta.x * 0.5f;
             var contentWidth = scrollRect.content.GetComponent<RectTransform>().sizeDelta.x;
+            float value = (localPosX - childWidth - (Screen.width * ((float)i / scrollRect.content.childCount))) / contentWidth;
             float scrollPosX = Mathf.Clamp(scrollPos.x, 0, 1);
-            float value = localPosX + (Screen.width * scrollPosX) / contentWidth;
-            //print($"{localPosX} + {Screen.width} * {scrollPosX} / {contentWidth} = {value}");
-            print($"{value} < {contentPosX}");
-            if (value < contentPosX)
+
+            if (value < scrollPosX)
             {
-                selectedMenuIndex = i;
+                //selectedMenuIndex = Math.Min(i + 1, scrollRect.content.childCount - 1);
+                selectedMenuIndex = Math.Max(i, 0);
                 break;
             }
         }
