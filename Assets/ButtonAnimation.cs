@@ -7,9 +7,11 @@ using UnityEngine.UI;
 
 public class ButtonAnimation : MonoBehaviour
 {
+    private Vector3 localScale;
     void Awake()
     {
         GetComponent<Button>().AddListener(this, StartPunchAnimation);
+        localScale = transform.localScale;
     }
 
     public float strength = 0.1f;
@@ -18,6 +20,7 @@ public class ButtonAnimation : MonoBehaviour
     private void StartPunchAnimation()
     {
         transform.DOKill();
+        transform.localScale = localScale;
         transform.DOPunchScale(Vector3.one * strength, duration, vibrato);
     }
 
