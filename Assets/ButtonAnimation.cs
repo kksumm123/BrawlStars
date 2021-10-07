@@ -17,6 +17,7 @@ public class ButtonAnimation : MonoBehaviour
     public int vibrato = 10;
     private void StartPunchAnimation()
     {
+        transform.DOKill();
         transform.DOPunchScale(Vector3.one * strength, duration, vibrato);
     }
 
