@@ -5,13 +5,25 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class GameModeSelectUI : MonoBehaviour
+public class GameModeSelectUI : BaseUI<GameModeSelectUI>
 {
     ScrollRect scrollRect;
     Button[] downMenuButtons;
     void Start()
     {
         scrollRect = transform.Find("Scroll View").GetComponent<ScrollRect>();
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)scrollRect.transform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)scrollRect.transform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)scrollRect.transform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)scrollRect.transform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)scrollRect.transform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)scrollRect.transform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)scrollRect.transform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)scrollRect.transform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)scrollRect.transform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)scrollRect.transform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)scrollRect.transform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)scrollRect.transform);
         downMenuButtons = transform.Find("DownMenu").GetComponentsInChildren<Button>();
         for (int i = 0; i < downMenuButtons.Length; i++)
         {
@@ -24,6 +36,11 @@ public class GameModeSelectUI : MonoBehaviour
 
 
         SetAactiveMenuText(0);
+    }
+
+    internal void ShowUI()
+    {
+        base.Show();
     }
 
     private void OnGameModeScrollValueChanged(Vector2 scrollPos)

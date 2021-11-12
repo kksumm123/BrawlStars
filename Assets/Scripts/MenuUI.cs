@@ -19,6 +19,14 @@ public class MenuUI : BaseUI<MenuUI>
         transform.Find("PlayButton/Button")
             .GetComponent<Button>().onClick
             .AddListener(OnClickPlay);
+        transform.Find("GemGrapButton/Button")
+            .GetComponent<Button>().onClick
+            .AddListener(OnClickGameModeSelect);
+    }
+
+    void OnClickGameModeSelect()
+    {
+        GameModeSelectUI.Instance.ShowUI();
     }
 
     void OnClickPlay()
